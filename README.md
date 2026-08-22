@@ -9,30 +9,82 @@
 
 ### Sobre mí
 
-- Estudiante de Ingeniería en Electrónica y Comunicaciones — ESIME Zacatenco, IPN
-- Me obsesiona la integración hardware-software: firmware, visión, control en tiempo real
-- Python para todo lo que no es firmware: scripting, automatización, bots
-- Actualmente construyendo un sistema HMI distribuido (ESP32 + WebSocket + telemetría de Spotify)
-- Aprendiendo a llevar cada proyecto a nivel "portafolio": pruebas unitarias, arquitectura modular, documentación real
+- Estudiante de Ingeniería en Electrónica y Comunicaciones — ESIME Zacatenco, IPN.
+- Me obsesiona la integración hardware-software: firmware, visión, control en tiempo real.
+- Python para todo lo que no es firmware: scripting, automatización, bots, etc.
+- Actualmente construyendo un sistema HMI distribuido (ESP32 + WebSocket + telemetría de Spotify).
+- Aprendiendo a llevar cada proyecto a nivel "portafolio": pruebas unitarias, arquitectura modular, documentación real.
+- Me gusta mucho Chiikawa.
 
 ---
 
-### Proyectos destacados
+###  Proyectos destacados
 
-**Robotic Pet — Pan-Tilt Vision System**
-Mascota robótica sobre Seeed XIAO ESP32S3 Sense. Arquitectura modular en C++17 (PlatformIO), FreeRTOS con detección de movimiento en Core 1 y control de servos suavizado a 50 Hz en Core 0. 29 pruebas unitarias con Unity. Capa de voz con Whisper + Ollama + Piper TTS.
-`C++` `PlatformIO` `FreeRTOS` `Computer Vision` `Unity Testing`
+<br>
 
-**Algorithmic Paper Trading Bot**
-Bot de trading con estrategia híbrida (ADX, RSI, Bollinger Bands, análisis de sentimiento con FinBERT) sobre 4 tickers + ETF de refugio vía API de Alpaca. Arquitectura de 6 módulos, caché en Parquet, despliegue en GitHub Actions.
+#### [Robotic Pet — Pan-Tilt Vision System](https://github.com/chac7127/robotic-pet)
+![Status](https://img.shields.io/badge/status-en%20desarrollo%20activo-yellow?style=flat-square)
+
+Sistema embebido de visión artificial sobre un Seeed XIAO ESP32S3 Sense. Arquitectura modular diseñada para optimizar latencia separando tareas por núcleo:
+
+- **Core 1:** Procesamiento de visión y detección de movimiento.
+- **Core 0:** Control de servomotores suavizado a 50 Hz mediante FreeRTOS.
+- **Interacción:** Capa de voz delegada a servidor externo usando Whisper, Ollama y Piper TTS.
+- **Calidad de código:** Respaldado por [29 pruebas unitarias](https://github.com/TU_USUARIO/robotic-pet/tree/main/test) utilizando Unity sobre entorno nativo de PlatformIO.
+
+`C++17` `PlatformIO` `FreeRTOS` `Computer Vision` `Unity Testing`
+
+<br>
+
+---
+
+<br>
+
+#### [Algorithmic Paper Trading Bot](https://github.com/chac7127/trading-bot)
+![Status](https://img.shields.io/badge/status-en%20producci%C3%B3n-brightgreen?style=flat-square)
+
+
+Bot de trading algorítmico con estrategia híbrida sobre 4 tickers + un ETF de refugio, desplegado de forma autónoma vía GitHub Actions:
+
+- **Estrategia:** Combina indicadores técnicos (ADX, RSI, Bollinger Bands) con análisis de sentimiento vía FinBERT.
+- **Persistencia:** Estado guardado en JSON, con la propia automatización haciendo commit de sus resultados al repo.
+- **Infraestructura:** Migrado de Task Scheduler local a GitHub Actions, con cron-job.org como dispatcher externo.
+- **Observabilidad:** Notificaciones en tiempo real vía Telegram y caché de datos históricos en formato Parquet.
+
 `Python` `Alpaca API` `FinBERT` `GitHub Actions`
 
-**Distributed HMI System**
-Puente de telemetría de Spotify (Python) + ESP32 + pantalla WebSocket sobre un Galaxy S4 reconvertido, con mensajería JSON estructurada (ArduinoJson v7) y UI adaptada a Chromium ~37-40.
+<br>
+
+---
+
+<br>
+
+#### [Distributed HMI System — ESP32 + Spotify](https://github.com/chac7127/hmi-spotify)
+![Status](https://img.shields.io/badge/status-en%20desarrollo%20activo-yellow?style=flat-square)
+
+Sistema de interfaz distribuida que convierte un Galaxy S4 en pantalla secundaria conectada por WebSocket, mostrando telemetría de Spotify en tiempo real:
+
+- **Puente Python:** Conexión persistente por WebSocket (migrada de polling) que consulta la API de Spotify y transmite estado + carátula del álbum.
+- **Firmware ESP32:** Mensajería estructurada en JSON usando ArduinoJson v7.
+- **Compatibilidad:** UI rediseñada con layouts basados en `float` y prefijos de vendor para funcionar dentro de las limitaciones de Chromium ~37-40 del dispositivo.
+
 `ESP32` `WebSockets` `ArduinoJson` `Python`
 
-**Real-Time Hand Tracking**
-Clasificador de 5 gestos en tiempo real con OpenCV + MediaPipe, usando heurísticas geométricas y filtro de media móvil.
+<br>
+
+---
+
+<br>
+
+#### [Real-Time Hand Tracking](https://github.com/chac7127/hand-tracking)
+![Status](https://img.shields.io/badge/status-terminado-blue?style=flat-square)
+
+Clasificador de gestos en tiempo real construido sobre OpenCV y MediaPipe:
+
+- **Gestos soportados:** pointing, peace, thumbs_up, open_palm, fist.
+- **Método:** Heurísticas geométricas sobre landmarks de mano, con filtro de media móvil para estabilizar la detección.
+- **Robustez:** Resuelto un breaking change en la API de MediaPipe fijando la versión a 0.10.21.
+
 `Python` `OpenCV` `MediaPipe`
 
 ---
