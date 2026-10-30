@@ -1,8 +1,8 @@
 <h1 align="center">¡Hola! Soy Isaac </h1>
-<h3 align="center">Ingeniero en Electrónica y Comunicaciones | ESIME Zacatenco, IPN</h3>
+<h3 align="center">Actualmente estudiando | ESIME, IPN</h3>
 
 <p align="center">
-  Construyo sistemas donde el hardware y el software se encuentran: robots, telemetría en tiempo real y HMIs distribuidos.
+  Construyo sistemas donde el hardware y el software se encuentran: robots, telemetría en tiempo real, HMIs distribuidos y lo que se me vaya ocurriendo.
 </p>
 
 ---
